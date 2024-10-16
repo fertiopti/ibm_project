@@ -70,15 +70,15 @@ class MlApi {
     }
   }
 }
-class Gemini {
+class Watsonxai {
   Future<String> makeApiRequest(String Question) async {
-    final apiKey = dotenv.env['GEMINI_API_KEY'];
+    final apiKey = dotenv.env['IBM_API_KEY'];
     if (apiKey == null) {
       return 'API key is missing';
     }
     // else {print('API KEY: $apiKey'); }
 
-    final url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=$apiKey';
+    final url = 'https://us-south.ml.cloud.ibm.com/$apiKey';
 
     try {
       final response = await http.post(
@@ -149,13 +149,13 @@ class Gemini {
     }
   }
   Future<String> makeApiRequestForRecommendations(String Question) async {
-    final apiKey = dotenv.env['GEMINI_API_KEY'];
+    final apiKey = dotenv.env['IBM_API_KEY'];
     if (apiKey == null) {
       return 'API key is missing';
     }
     // else {print('API KEY: $apiKey'); }
 
-    final url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=$apiKey';
+    final url = 'https://us-south.ml.cloud.ibm.com/$apiKey';
 
     try {
       final response = await http.post(
